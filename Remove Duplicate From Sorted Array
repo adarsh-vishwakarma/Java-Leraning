@@ -1,0 +1,24 @@
+public class Problem1 {
+    public static int removeDuplicate(int[] arr, int size) {
+        int i = 0;
+        for (int j = 1; j < size; j++) {
+            if (arr[i] < arr[j]) {
+                int temp = arr[i + 1];
+                arr[i + 1] = arr[j];
+                arr[j] = temp;
+                i++;
+            }
+        }
+        return i + 1;
+    }
+
+    public static void main(String args[]) {
+        int[] arr = { 0, 1, 1, 1, 2, 2, 3 };
+        int size = arr.length;
+        size = removeDuplicate(arr, size);
+        System.out.println(size);
+        for (int i = 0; i < size; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}
